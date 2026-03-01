@@ -33,7 +33,7 @@ To check coverage for a single file:
 
 ```r
 covr_res <- devtools:::test_coverage_active_file("R/file_name.R")
-which(vapply(covr_res, `[[`, integer(1), "value") == 0)
+which(vapply(covr_res, `[[`, numeric(1), "value") == 0)
 ```
 
 The following files are intentionally excluded from coverage requirements (no associated tests):
