@@ -10,8 +10,15 @@ License: MIT + file LICENSE
 URL: https://github.com/wranglezone/datadox,
     https://wranglezone.github.io/datadox/
 BugReports: https://github.com/wranglezone/datadox/issues
+Imports:
+    purrr,
+    rlang,
+    stringr,
+    tibble,
+    vctrs
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
