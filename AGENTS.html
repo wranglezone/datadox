@@ -44,6 +44,10 @@
 <td>@.github/skills/search-code/SKILL.md</td>
 </tr></tbody></table></div>
 <div class="section level2">
+<h2 id="file-organization">File Organization<a class="anchor" aria-label="anchor" href="#file-organization"></a></h2>
+<p>Each exported function should be defined in its own file named <code>R/{function_name}.R</code>. For example, <code>create_dataset_dictionary()</code> belongs in <code>R/create_dataset_dictionary.R</code>. Any helper functions used exclusively by that exported function should also live in the same file. General-purpose helpers shared across multiple functions belong in <code>R/utils.R</code>.</p>
+</div>
+<div class="section level2">
 <h2 id="testing">Testing<a class="anchor" aria-label="anchor" href="#testing"></a></h2>
 <ul><li>Before starting any coding task, run the relevant tests and check coverage so you know the baseline state.</li>
 <li>Always run <code>air format .</code> before running tests, after every R file edit.</li>
@@ -61,7 +65,7 @@
 <p>To check coverage for a single file:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">covr_res</span> <span class="op">&lt;-</span> <span class="fu">devtools</span><span class="fu">:::</span><span class="fu">test_coverage_active_file</span><span class="op">(</span><span class="st">"R/file_name.R"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_int</a></span><span class="op">(</span><span class="va">covr_res</span>, <span class="st">"value"</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">covr_res</span>, <span class="va">`[[`</span>, <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, <span class="st">"value"</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
 <p>The following files are intentionally excluded from coverage requirements (no associated tests):</p>
 <ul><li><code>R/datadox-package.R</code></li>
 </ul></div>

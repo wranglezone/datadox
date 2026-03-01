@@ -9,6 +9,15 @@ Skills in @.github/skills should be loaded when the user triggers them.
 | document functions    | @.github/skills/document/SKILL.md    |
 | search / rewrite code | @.github/skills/search-code/SKILL.md |
 
+## File Organization
+
+Each exported function should be defined in its own file named
+`R/{function_name}.R`. For example, `create_dataset_dictionary()`
+belongs in `R/create_dataset_dictionary.R`. Any helper functions used
+exclusively by that exported function should also live in the same file.
+General-purpose helpers shared across multiple functions belong in
+`R/utils.R`.
+
 ## Testing
 
 - Before starting any coding task, run the relevant tests and check
@@ -37,7 +46,7 @@ To check coverage for a single file:
 
 ``` r
 covr_res <- devtools:::test_coverage_active_file("R/file_name.R")
-which(purrr::map_int(covr_res, "value") == 0)
+which(vapply(covr_res, `[[`, integer(1), "value") == 0)
 ```
 
 The following files are intentionally excluded from coverage
