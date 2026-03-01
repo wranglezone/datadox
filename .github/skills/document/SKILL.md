@@ -54,9 +54,9 @@ When a parameter takes one of a fixed set of values, document them with a bullet
 Use `@returns` (not `@return`). Include a type when it's informative:
 
 ```r
-#' @returns A prepared tibblify specification.
-#' @returns (`logical(1)`) `TRUE` if `x` is a `tib_scalar`.
-#' @returns Either a tibble or a list, depending on the specification.
+#' @returns A data dictionary object.
+#' @returns (`logical(1)`) `TRUE` if `x` is a valid dictionary column.
+#' @returns Either a data frame or a list, depending on the input.
 #' @returns `NULL` (invisibly).
 ```
 
@@ -101,22 +101,22 @@ No description paragraph, fewer blank `#'` lines, no `@examples`, `@keywords int
 
 Use `@rdname` to group related functions under one help page. This applies to:
 - **S3 methods we own** (generic defined in this package): generic gets full docs, methods get `@rdname` + `@export`.
-- **Related exported functions** (e.g., `tspec_df`/`tspec_object`/`tspec_row`): primary function gets full docs, variants get `@rdname` + `@export`.
+- **Related exported functions** (e.g., multiple variants of the same operation): primary function gets full docs, variants get `@rdname` + `@export`.
 
 ```r
-#' Finalize a tibblify object
+#' Format a data dictionary
 #'
-#' @param field (`any`) The field value.
-#' @inheritParams .shared-params-spec_prep
+#' @param x (`any`) The object to format.
+#' @inheritParams .shared-params
 #' @keywords internal
-.finalize_tspec_object <- function(field_spec, field) {
-  UseMethod(".finalize_tspec_object")
+.format_dict <- function(x, ...) {
+  UseMethod(".format_dict")
 }
 
-#' @rdname .finalize_tspec_object
+#' @rdname .format_dict
 #' @export
-.finalize_tspec_object.tib_collector <- function(field_spec, field) {
-  field[[1]]
+.format_dict.data_dict <- function(x, ...) {
+  # method implementation
 }
 ```
 
@@ -134,7 +134,7 @@ method.class <- function(x, ...) { ... }
 
 ## Style notes
 
-**Cross-references:** Use square brackets — `[tspec_df()]` (internal), `[tibble::tibble()]` (external), `[tib_spec]` (topics).
+**Cross-references:** Use square brackets — `[create_dataset_dictionary()]` (internal), `[base::data.frame()]` (external), `[data_dict]` (topics).
 
 **Section comment headers** organize code within a file, lowercase with dashes to column 80:
 
