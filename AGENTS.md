@@ -105,4 +105,4 @@ The following files are intentionally excluded from coverage requirements (no as
 
 ## Documentation
 
-After adding or changes functions, create or update their documentation. See @.github/skills/document/SKILL.md for details on documentation for this project.
+After adding or changing functions, create or update their documentation. See @.github/skills/document/SKILL.md for details on documentation for this project.
