@@ -62,10 +62,6 @@ test_that("describe_dataset() wraps items in \\describe{} (#3)", {
 })
 
 test_that("describe_dataset() uses create_dataset_dictionary() by default (#3)", {
-  skip_if_not_installed("purrr")
-  skip_if_not_installed("stringr")
-  skip_if_not_installed("tibble")
-  skip_if_not_installed("vctrs")
   df <- data.frame(wind_speed = 1L)
   result <- describe_dataset(df)
   expect_match(result, "wind_speed", all = FALSE)

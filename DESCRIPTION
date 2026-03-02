@@ -11,12 +11,15 @@ URL: https://github.com/wranglezone/datadox,
     https://wranglezone.github.io/datadox/
 BugReports: https://github.com/wranglezone/datadox/issues
 Imports:
+    knitr,
     purrr,
+    rlang,
     stringr,
     tibble,
     vctrs
-Suggests: 
+Suggests:
     testthat (>= 3.0.0),
+    usethis,
     withr
 Config/testthat/edition: 3
 Encoding: UTF-8
