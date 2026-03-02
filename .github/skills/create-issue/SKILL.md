@@ -42,9 +42,17 @@ Titles use conventional commit prefixes:
 
 ## Issue body structure
 
-Include these sections in order:
+Which sections to include depends on the issue type:
 
-### `## Summary`
+| Section | Feature | Bug | Documentation | Task |
+|---|---|---|---|---|
+| `## Summary` | ✓ | ✓ | ✓ | ✓ |
+| `## Details` | optional | optional | optional | optional |
+| `## Proposed signature` | ✓ | — | — | — |
+| `## Behavior` | ✓ | ✓ | — | — |
+| `## References` | optional | optional | optional | optional |
+
+### `## Summary` (all types)
 
 A single user story sentence (no other content in this section):
 
@@ -53,13 +61,18 @@ A single user story sentence (no other content in this section):
 ```
 
 Example:
+
 ```markdown
 ## Summary
 
 > As a data wrangler, in order to share information about my dataset, I would like to create a simple data dictionary based on my dataset.
 ```
 
-### `## Proposed signature`
+### `## Details` (optional, all types)
+
+For information that's important to capture but doesn't fit naturally into any other section. Use sparingly — if the content belongs in `## Behavior`, `## Proposed signature`, or `## References`, put it there instead.
+
+### `## Proposed signature` (Feature only)
 
 The proposed R function signature, arguments table, and return value description:
 
@@ -78,13 +91,14 @@ function_name(arg1, arg2)
 **Returns** a `TYPE` with description.
 ````
 
-### `## Behavior`
+### `## Behavior` (Feature and Bug)
 
-Bullet points describing the expected behavior, edge cases, and any internal helpers that should be implemented as part of this issue.
+- **Feature**: bullet points describing expected behavior, edge cases, and any internal helpers to implement as part of this issue.
+- **Bug**: describe the current (broken) behavior, the expected behavior, and steps to reproduce if known.
 
-### `## References` (optional)
+### `## References` (optional, all types)
 
-Only include this section when there are specific reference implementations, external URLs, or related code to link to. Omit it entirely when there are none.
+Only include when there are specific reference implementations, external URLs, or related code to link to. Omit it entirely when there are none.
 
 ## Creating the issue
 
