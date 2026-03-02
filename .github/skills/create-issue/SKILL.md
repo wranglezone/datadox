@@ -8,6 +8,18 @@ compatibility: Requires the `gh` CLI and an authenticated GitHub session.
 
 Use `gh api graphql` with the `createIssue` mutation to create issues. This sets the issue type in a single step. Write the body to a temp file first, then pass it via `$(cat ...)`.
 
+## Looking up IDs
+
+The hardcoded IDs below are correct for this repo as of 2026-03-02. If they ever change, or if you're working in a fork or a repo other than "wranglezone/datawrap", re-run these queries to get fresh values (updating owner and name if necessary).
+
+```bash
+# Repository node ID
+gh api graphql -f query='{ repository(owner: "wranglezone", name: "datawrap") { id } }'
+
+# Available issue type IDs
+gh api graphql -f query='{ repository(owner: "wranglezone", name: "datawrap") { issueTypes(first: 20) { nodes { id name } } } }'
+```
+
 ## Issue type
 
 Choose the type that best fits the issue:
