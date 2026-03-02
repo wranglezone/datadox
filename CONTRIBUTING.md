@@ -1,6 +1,6 @@
-# Contributing to datadox
+# Contributing to datawrap
 
-This outlines how to propose a change to datadox.
+This outlines how to propose a change to datawrap.
 
 ## Fixing typos
 
@@ -24,7 +24,7 @@ help you write a unit test, if needed).
 
 - Fork the package and clone onto your computer. If you haven’t done
   this before, we recommend using
-  `usethis::create_from_github("wranglezone/datadox", fork = TRUE)`.
+  `usethis::create_from_github("wranglezone/datawrap", fork = TRUE)`.
 
 - Install all development dependencies with
   `devtools::install_dev_deps()`, and then make sure the package passes
@@ -63,7 +63,7 @@ help you write a unit test, if needed).
 
 ## Code of Conduct
 
-Please note that the datadox project is released with a [Contributor
+Please note that the datawrap project is released with a [Contributor
 Code of
-Conduct](https://wranglezone.github.io/datadox/CODE_OF_CONDUCT.md). By
+Conduct](https://wranglezone.github.io/datawrap/CODE_OF_CONDUCT.md). By
 contributing to this project you agree to abide by its terms.

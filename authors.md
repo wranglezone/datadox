@@ -8,15 +8,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/wranglezone/datadox/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/wranglezone/datawrap/blob/main/DESCRIPTION)
 
-Harmon J (2026). *datadox: Package Data Documentation*. R package
-version 0.0.0.9000, <https://github.com/wranglezone/datadox>.
+Harmon J (2026). *datawrap: Final Steps for Dataset Preparation*. R
+package version 0.0.0.9000, <https://wranglezone.github.io/datawrap/>.
 
     @Manual{,
-      title = {datadox: Package Data Documentation},
+      title = {datawrap: Final Steps for Dataset Preparation},
       author = {Jon Harmon},
       year = {2026},
       note = {R package version 0.0.0.9000},
-      url = {https://github.com/wranglezone/datadox},
+      url = {https://wranglezone.github.io/datawrap/},
     }

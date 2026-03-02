@@ -5,7 +5,7 @@ column, pre-filled with placeholder descriptions. The file is intended
 to be hand-edited, then read back (e.g. via
 `readMDTable::read_md_table()`) to produce a curated dictionary for use
 with
-[`describe_dataset()`](https://wranglezone.github.io/datadox/reference/describe_dataset.md).
+[`describe_dataset()`](https://wranglezone.github.io/datawrap/reference/describe_dataset.md).
 
 ## Usage
 
@@ -46,8 +46,8 @@ write_dataset_dictionary(
 
 ## See also
 
-[`create_dataset_dictionary()`](https://wranglezone.github.io/datadox/reference/create_dataset_dictionary.md),
-[`describe_dataset()`](https://wranglezone.github.io/datadox/reference/describe_dataset.md)
+[`create_dataset_dictionary()`](https://wranglezone.github.io/datawrap/reference/create_dataset_dictionary.md),
+[`describe_dataset()`](https://wranglezone.github.io/datawrap/reference/describe_dataset.md)
 
 ## Examples
 

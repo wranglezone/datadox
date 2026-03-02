@@ -31,7 +31,7 @@ block, suitable for returning from `@eval`.
 
 ## See also
 
-[`create_dataset_dictionary()`](https://wranglezone.github.io/datadox/reference/create_dataset_dictionary.md)
+[`create_dataset_dictionary()`](https://wranglezone.github.io/datawrap/reference/create_dataset_dictionary.md)
 
 ## Examples
 
