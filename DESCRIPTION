@@ -12,7 +12,6 @@ URL: https://github.com/wranglezone/datadox,
 BugReports: https://github.com/wranglezone/datadox/issues
 Imports:
     purrr,
-    rlang,
     stringr,
     tibble,
     vctrs
