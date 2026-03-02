@@ -9,3 +9,6 @@
   :
 
   Generate a `@format` roxygen2 block for a dataset
+
+- [`write_dataset_dictionary()`](https://wranglezone.github.io/datadox/reference/write_dataset_dictionary.md)
+  : Write an initial data dictionary markdown file for a dataset

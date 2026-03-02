@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2026-03-02T00:28Z
+last_built: 2026-03-02T11:50Z
 urls:
   reference: https://wranglezone.github.io/datadox/reference
   article: https://wranglezone.github.io/datadox/articles
