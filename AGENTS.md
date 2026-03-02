@@ -2,14 +2,14 @@
 
 ## Repository Overview
 
-**datadox** is an R package that helps developers create data dictionaries for package datasets.
+**datawrap** is an R package that helps developers with the final steps of dataset preparation: auto-cleaning, creating data dictionaries, and documenting package datasets.
 
 ### Key files and directories
 
 | Path | Purpose |
 |------|---------|
 | `R/` | Exported functions and internal helpers; see File Organization below |
-| `R/datadox-package.R` | Auto-generated package-level documentation; do not edit |
+| `R/datawrap-package.R` | Auto-generated package-level documentation; do not edit |
 | `tests/testthat/` | Test suite; mirrors `R/` structure |
 | `man/` | Generated Rd files; do not edit manually |
 | `.github/skills/` | Agent skill files (document, search-code) |
@@ -101,8 +101,8 @@ which(vapply(covr_res, `[[`, numeric(1), "value") == 0)
 
 The following files are intentionally excluded from coverage requirements (no associated tests):
 
-- `R/datadox-package.R`
+- `R/datawrap-package.R`
 
 ## Documentation
 
-After adding or changes functions, create or update their documentation. See @.github/skills/document/SKILL.md for details on documentation for this project.
+After adding or changing functions, create or update their documentation. See @.github/skills/document/SKILL.md for details on documentation for this project.

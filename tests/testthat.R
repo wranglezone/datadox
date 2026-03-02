@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(datadox)
+library(datawrap)
 
-test_check("datadox")
+test_check("datawrap")
