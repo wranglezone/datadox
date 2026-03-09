@@ -18,6 +18,43 @@
 
 ---
 
+## Standard workflow
+
+For any feature, fix, or refactor:
+
+1. **Update packages**: `pak::pak()`
+2. **Run existing tests** — confirm everything passes before touching code:
+   `devtools::test(reporter = "check")`
+   If any tests fail, stop and ask the user how to proceed.
+3. **Plan** — identify which R files are affected; check whether new exported
+   functions are needed (→ r-code skill)
+4. **Test first** — write a failing test, then implement (→ tdd-workflow skill):
+   `devtools::test(filter = "name", reporter = "check")` — should fail
+5. **Implement** — minimal code to make the tests pass
+6. **Refactor** — clean up while keeping all tests green
+7. **Document** — for any new or changed exported functions, use the document skill
+8. **Verify**:
+   ```r
+   devtools::test(reporter = "check")
+   covr_res <- devtools:::test_coverage_active_file("R/file_name.R")
+   which(vapply(covr_res, `[[`, numeric(1), "value") == 0)
+   ```
+   Then run `air format .`
+   Once, just before wrapping up: `devtools::check(error_on = "warning")`.
+   Warnings and errors must be resolved. NOTEs should be resolved too.
+9. **News** — add a bullet at the top of `NEWS.md` (under the development version
+   heading). Rules:
+   - Only for user-facing changes; skip purely internal changes.
+   - One line per bullet; end with a full stop.
+   - Write for users, not developers. Frame positively, present tense:
+     `` * `create_dataset_dictionary()` now accepts ... `` not `* Fixed a bug where ...`
+   - Put the function name (in backticks with `()`) near the start.
+   - Issue number and contributor go in parentheses before the final period:
+     `` * `create_dataset_dictionary()` now accepts ... (@{username}, #{issue_number}). ``
+   - Get username: `gh api user --jq .login`
+
+---
+
 ## GitHub
 
 Use the `gh` CLI to interact with GitHub rather than fetching web URLs. Common examples:
@@ -51,15 +88,27 @@ with `@eval` in package dataset documentation.
 
 ---
 
+## General
+
+- When running R from the console, use `--quiet --vanilla`.
+- Always run `air format .` after generating code.
+- Code comments should explain *why*, not *what*. Omit comments that restate the code.
+- When writing or reviewing any code, load the relevant skills (usually `r-code`, `tdd-workflow`, and `document`).
+
+---
+
 ## Skills
 
 Skills in @.github/skills should be loaded when the user triggers them.
 
-| Triggers              | Path                                           |
-------------------------|------------------------------------------------|
-| document functions    | @.github/skills/document/SKILL.md              |
-| search / rewrite code | @.github/skills/search-code/SKILL.md           |
-| create github issues  | @.github/skills/create-issue/SKILL.md          |
+| Triggers                                          | Path                                           |
+|---------------------------------------------------|------------------------------------------------|
+| document functions                                | @.github/skills/document/SKILL.md              |
+| search / rewrite code                             | @.github/skills/search-code/SKILL.md           |
+| create github issues                              | @.github/skills/create-issue/SKILL.md          |
+| implement issue / work on #NNN                    | @.github/skills/implement-issue/SKILL.md       |
+| writing R functions / API design / error handling | @.github/skills/r-code/SKILL.md                |
+| writing or reviewing tests                        | @.github/skills/tdd-workflow/SKILL.md          |
 
 ## File Organization
 
