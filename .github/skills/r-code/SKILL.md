@@ -124,7 +124,8 @@ system.file("extdata", "data.csv", package = "datawrap") # Right
 Packages that are already in `Imports` in @DESCRIPTION should be used in
 preference to base R equivalents when relevant.
 
-For example: prefer `rlang::is_*()` predicates over `is.*()`, and
+For example: prefer `purrr::map()` over `lapply()`, `rlang::is_*()` predicates
+over `is.*()`, `vctrs::vec_*()` over base length/NA checks, and
 `withr::local_*()` over manual `on.exit()` state management.
 
 ### When to add a new dependency

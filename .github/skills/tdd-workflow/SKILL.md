@@ -33,11 +33,12 @@ Goal: **100%** for every edited file. After editing `R/file_name.R`, verify:
 
 ```r
 covr_res <- devtools:::test_coverage_active_file("R/file_name.R")
-which(vapply(covr_res, `[[`, numeric(1), "value") == 0)
+which(purrr::map_int(covr_res, "value") == 0)
 ```
 
 Files excluded from the coverage requirement:
 - `R/datawrap-package.R`
+- Files matching `R/import-standalone-*.R`
 
 ## Test types
 
