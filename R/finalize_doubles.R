@@ -15,8 +15,15 @@
 #' df <- data.frame(x = c(1.0, 2.0, 3.0), y = c(1.1, 2.2, 3.3))
 #' finalize_doubles(df)
 finalize_doubles <- function(dataset) {
+  if (!is.data.frame(dataset)) {
+    stbl::pkg_abort(
+      "datawrap",
+      "{.arg dataset} must be a {.cls data.frame}.",
+      "invalid_argument"
+    )
+  }
   int_ish_cols <- purrr::map_lgl(dataset, is.double) &
     purrr::map_lgl(dataset, stbl::is_int_ish)
-  dataset[int_ish_cols] <- lapply(dataset[int_ish_cols], stbl::to_int)
+  dataset[int_ish_cols] <- purrr::map(dataset[int_ish_cols], stbl::to_int)
   dataset
 }

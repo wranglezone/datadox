@@ -26,16 +26,18 @@ test_that("finalize_doubles() preserves NA values in converted columns (#10)", {
   expect_true(is.na(result$x[[2]]))
 })
 
-test_that("finalize_doubles() does not convert already-integer columns (#10)", {
-  df <- data.frame(x = 1L)
-  result <- finalize_doubles(df)
-  expect_type(result$x, "integer")
+test_that("finalize_doubles() preserves the class of the input (#10)", {
+  tbl <- tibble::tibble(x = c(1.0, 2.0))
+  result <- finalize_doubles(tbl)
+  expect_identical(class(result), class(tbl))
 })
 
-test_that("finalize_doubles() returns a data frame (#10)", {
-  df <- data.frame(x = c(1.0, 2.0))
-  result <- finalize_doubles(df)
-  expect_s3_class(result, "data.frame")
+test_that("finalize_doubles() errors if dataset is not a data.frame (#10)", {
+  stbl::expect_pkg_error_classes(
+    finalize_doubles(list(x = 1.0)),
+    "datawrap",
+    "invalid_argument"
+  )
 })
 
 test_that("finalize_doubles() handles a dataset with no double columns (#10)", {
