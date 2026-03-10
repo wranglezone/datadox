@@ -5,9 +5,10 @@
 #' losing any information to integers. Columns that contain non-integerish data
 #' are left unchanged.
 #'
-#' @param dataset (`data.frame` or `list`) The dataset to process.
+#' @param dataset (`data.frame`, `list`, or `NULL`) The dataset to process.
 #'
-#' @returns The `dataset` with all integerish columns converted to integer.
+#' @returns The `dataset` with all integerish columns converted to integer (or
+#'   `NULL` if `dataset` is `NULL`).
 #' @export
 #'
 #' @examples
@@ -17,13 +18,13 @@ finalize_integers <- function(dataset) {
   if (!is.null(dataset) && !is.list(dataset)) {
     stbl::pkg_abort(
       "datawrap",
-      "{.arg dataset} must be a {.cls data.frame}.",
+      "{.arg dataset} must be a {.cls data.frame}, {.cls list}, or {.cls NULL}.",
       c("invalid_dataset", "invalid_argument")
     )
   }
-  # TODO: This function isn't enough to warrant adding dplyr to imports, but
-  # this should be refactored to use dplyr::mutate, dplyr::across, and
-  # dplyr::where when something else necessitates dplyr.
+  # NOTE: This function alone does not warrant adding dplyr to imports, but it
+  # could be refactored to use dplyr::mutate, dplyr::across, and dplyr::where
+  # if dplyr is added as a dependency elsewhere in the package.
   int_ish_cols <- purrr::map_lgl(dataset, \(x) {
     !is.logical(x) && stbl::is_int_ish(x)
   })

@@ -7,10 +7,11 @@
 finalize_integers(dataset)
 }
 \arguments{
-\item{dataset}{(\code{data.frame} or \code{list}) The dataset to process.}
+\item{dataset}{(\code{data.frame}, \code{list}, or \code{NULL}) The dataset to process.}
 }
 \value{
-The \code{dataset} with all integerish columns converted to integer.
+The \code{dataset} with all integerish columns converted to integer (or
+\code{NULL} if \code{dataset} is \code{NULL}).
 }
 \description{
 Iterates over all columns (or list elements) in \code{dataset} and converts any

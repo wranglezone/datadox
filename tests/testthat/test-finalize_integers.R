@@ -44,7 +44,7 @@ test_that("finalize_integers() preserves the class of the input (#10)", {
   expect_identical(class(result), class(tbl))
 })
 
-test_that("finalize_integers() errors if dataset is not a data.frame or list (#10)", {
+test_that("finalize_integers() errors if dataset is not a data.frame, list, or NULL (#10)", {
   stbl::expect_pkg_error_classes(
     finalize_integers("not a dataset"),
     "datawrap",
