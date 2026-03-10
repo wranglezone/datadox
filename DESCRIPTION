@@ -14,9 +14,12 @@ Imports:
     knitr,
     purrr,
     rlang,
+    stbl,
     stringr,
     tibble,
     vctrs
+Remotes:
+    stbl=wranglezone/stbl
 Suggests:
     testthat (>= 3.0.0),
     usethis,

@@ -11,8 +11,8 @@ Helpers to create data dictionaries, document package datasets, and apply finish
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/wranglezone/datawrap}
   \item \url{https://wranglezone.github.io/datawrap/}
+  \item \url{https://github.com/wranglezone/datawrap}
   \item Report bugs at \url{https://github.com/wranglezone/datawrap/issues}
 }
 

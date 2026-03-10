@@ -2,4 +2,5 @@
 
 export(create_dataset_dictionary)
 export(describe_dataset)
+export(finalize_doubles)
 export(write_dataset_dictionary)
